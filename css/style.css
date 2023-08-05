@@ -1,0 +1,46 @@
+body{
+    /* --bs-body-color: #f1f4f6; */
+    background-color: #24353F;    
+}
+h1{
+    color: #17a2b8;
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+.box{
+/* background-color: aqua; */
+    border: 2px;
+    border: #17A2B8;
+    box-shadow: 5px 5px 25px 5px #1C2930;
+
+
+}
+.btn{
+    width: 100%;
+}
+
+.form-control {
+    
+    --bs-border-color: #dee2e6;
+    --bs-body-bg: #24353F;
+}
+a:hover{
+text-decoration: underline;
+}
+
+.btn-primary {
+    /* --bs-btn-color: #fff; */
+    --bs-btn-bg: #24353F;
+    --bs-btn-border-color: #17A2B8;
+    --bs-btn-hover-bg: #17A2B8;
+    --bs-btn-hover-border-color: #17A2B8;
+    --bs-btn-active-bg: #17A2B8;
+    --bs-btn-active-border-color: #1E6B7B;
+    color: #17A2B8;
+}
+
+.form-control::placeholder { 
+    color: rgb(231, 212, 212);
+    opacity: 1; /* Firefox */
+  }
