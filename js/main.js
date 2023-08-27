@@ -121,7 +121,7 @@ function signinChecker(){
     // setTimeout(function() {
     //     window.location.href = "./welcome.html";
     //  }, 2000);
-    for(var i =0 ; i<allUsers.legnth ; i++)
+    for(var i =0 ; i<allUsers.length ; i++)
 
     {
         if(signinEmailInput.value == allUsers[i].email && signinPasswordInput.value == allUsers[i].password)
