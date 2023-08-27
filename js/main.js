@@ -2,11 +2,14 @@ var signupNameInput = document.getElementById('signupName')
 var signupPasswordInput = document.getElementById('signupPassword') 
 var signupEmailInput = document.getElementById('signupEmail') 
 var signinEmailInput = document.getElementById('signinEmail') 
-var signinpPasswordInput = document.getElementById('signinPassword') 
+var signinPasswordInput = document.getElementById('signinPassword') 
 
 
 
 allUsers = [];
+if(localStorage.getItem != 'null'){
+    allUsers = localStorage.getItem('allUsers')
+}
 
 function addUser()
 {
@@ -23,16 +26,18 @@ if(errorMsg == true)
     }
 
 
-   localStorage.setItem("user" , JSON.stringify(allUsers));
 
 
         allUsers.push(user);
-        console.log(user);
+        // console.log(user);
         document.getElementById('msgToUser').innerHTML = 'success ...';
+        localStorage.setItem("user" , JSON.stringify(allUsers));
+
+        
         // window.location.replace("./index.html");
-        setTimeout(function() {
-            window.location.href = "./index.html";
-         }, 2000);
+        // setTimeout(function() {
+        //     window.location.href = "./index.html";
+        //  }, 2000);
  
     // }
     // else{
@@ -86,15 +91,19 @@ return true;
 }
 
 
+
 function checkEmailExists()
 {
-var email = signupEmailInput.value
+var email = signupEmailInput.value;
+var pass = signinPasswordInput;
 
-for( var i = 0 ; i< allUsers.legnth ; i++)
+for( var i = 0 ; i< allUsers.length ; i++)
 {
-    if(email == allUsers[i].email)
+    if(email == allUsers[i].email && pass ==allUsers[i].password)
     {
-       console.log("allready..")
+        var x = allUsers[i].name;
+        localStorage.setItem("")
+       console.log("Email allready exists.")
         return true
     } 
     else {
@@ -106,20 +115,26 @@ for( var i = 0 ; i< allUsers.legnth ; i++)
 
 }
 
-// document.querySelector('loginBtn').addEventListener( 'click', signinChicker) ;
 
+function signinChecker(){
 
-function signinChicker(){
-
+    // setTimeout(function() {
+    //     window.location.href = "./welcome.html";
+    //  }, 2000);
     for(var i =0 ; i<allUsers.legnth ; i++)
+
     {
-        if(signinEmailInput.value == allUsers[i].email && signinpPasswordInput.value == allUsers[i].password)
+        if(signinEmailInput.value == allUsers[i].email && signinPasswordInput.value == allUsers[i].password)
 {
+    var x = allUsers[i].name;
+    localStorage.setItem("usname", "y")
     console.log("logging in")
 
     setTimeout(function() {
         window.location.href = "./welcome.html";
      }, 2000);
+     document.getElementById('welcomemsg').innerHTML = 'welcome '+ allUsers[i].name;
+
 }
 else{
     document.getElementById('loginMsgToUser').innerHTML = 'invalid email or password';
@@ -132,4 +147,8 @@ else{
     }
 
 }
+// document.querySelector('loginBtn').addEventListener( 'click', signinChecker) ;
+
+
+
 
